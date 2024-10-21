@@ -2,6 +2,11 @@
 
 The example I'm going to use, pulls the same data from different sources.
 
+Here, I am assuming two different tables have information that you want to put in one report. Both can be different, but you only
+want information that is the same in both tables. 
+
+For example, val_1 can be user_id, val_2 can be name, val_3 can be address, and you need an additional column that says which table that
+you received the information from.
 */
 
 --This is bad code. Don't do this...
@@ -25,6 +30,7 @@ stack neatly on top of each other, then you are better off using a UNION or a UN
 --If you use any other statement that typically goes after the WHERE clause (ORDER BY, GROUP BY, HAVING), it goes in the last query
 --You can have multiple UNION statements
 
+--Optimized query start
 SELECT t1.val_1, t1.val_2, t1.val_3, 'From Table 1' AS 'TableSource'
 FROM #tempTable_1 t1
 
@@ -32,7 +38,7 @@ UNION
 
 SELECT t2.val_1, t2.val_2, t2.val_3, 'From Table 2' AS 'TableSource'
 FROM #tempTable_2.t2
-
+--Optimized query end
 
 --UNION removes duplicates. If you want to keep duplicates
 UNION ALL
@@ -43,7 +49,7 @@ UNION ALL
 
 /*For additional information, you can look up "time complexity". 
 The first query has a time complexity of O(n^2) 
-The first query has a time complexity of O(n)
+The second query has a time complexity of O(n)
 
 A further explanation of time complexity can be shown here:
 https://www.geeksforgeeks.org/understanding-time-complexity-simple-examples/ */ 
