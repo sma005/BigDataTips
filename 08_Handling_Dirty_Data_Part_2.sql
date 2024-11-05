@@ -15,7 +15,7 @@ and sometimes formatted like this:
 The easiest thing to do (and what is going to happen in this case) is that I'm going to request that they send the same file, and
 change the delimiter to a pipe " | ". 
 This little used key is located above the return key, and you have to hold shift. Excel gives you the ability to change the delimiter to a pipe.
-If that option is not there, then you're going to have to parse through the data, and contain the address line with a double 
+If the data can't be resubmitted, then you're going to have to parse through the data, and contain the address line with a double 
 quotation mark. ex: "111 Main St., Columbus, OH 43205" 
 
 */
